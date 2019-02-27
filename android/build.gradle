@@ -2,38 +2,18 @@ apply plugin: 'com.android.library'
 
 repositories {
     mavenCentral()
-    maven {
-        url "https://jitpack.io"
-    }
-}
-
-buildscript {
-    repositories {
-        mavenCentral()
-        maven {
-            url "https://jitpack.io"
-        }
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:2.0.0'
-    }
+    maven { url "https://jitpack.io" }
 }
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion 16
-        targetSdkVersion 23
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
-    }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
     }
 }
 
